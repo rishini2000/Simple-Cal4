@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
     int value2 = 0;
     int answer = 0;
 
-    public void addition(View v) {
+    public void calculate(View v) {
+
+        String tag = v.getTag().toString();
+        lblAnswer.setText(tag);
 
         String value1 = txtValue1.getText().toString();
         String value2 = txtValue2.getText().toString();
@@ -35,66 +38,21 @@ public class MainActivity extends AppCompatActivity {
         Double x = Double.parseDouble(value1);
         Double y = Double.parseDouble(value2);
 
-        Double answer = (x + y);
 
+        double answer = 0;
 
-        lblAnswer.setText("" + answer);
+        switch (tag){
+            case "add": answer = x+y; break;
+            case "sub": answer = x-y; break;
+            case "mul": answer = x*y; break;
+            case "div": answer = x/y; break;
+        }
+        lblAnswer.setText("Answer is: " + answer);
     }
 
-    public void substraction(View v) {
 
 
 
-        String value1 = txtValue1.getText().toString();
-        String value2 = txtValue2.getText().toString();
-
-        Double x = Double.parseDouble(value1);
-        Double y = Double.parseDouble(value2);
-
-        Double answer = (x - y);
-
-
-        lblAnswer.setText("" + answer);
     }
 
-    public void multiplication(View v) {
 
-
-
-        String value1 = txtValue1.getText().toString();
-        String value2 = txtValue2.getText().toString();
-
-        Double x = Double.parseDouble(value1);
-        Double y = Double.parseDouble(value2);
-
-        Double answer = (x * y);
-
-
-        lblAnswer.setText("" + answer);
-    }
-
-    public void Division(View v) {
-
-
-        String value1 = txtValue1.getText().toString();
-        String value2 = txtValue2.getText().toString();
-
-        Double x = Double.parseDouble(value1);
-        Double y = Double.parseDouble(value2);
-
-        Double answer = (x / y);
-
-
-        lblAnswer.setText("" + answer);
-    }
-
-    public void Clear(View v) {
-        answer = 0;
-
-
-        lblAnswer.setText("" + answer);
-        txtValue1.setText("");
-        txtValue2.setText("");
-    }
-
-}
